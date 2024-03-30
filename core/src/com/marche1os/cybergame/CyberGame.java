@@ -34,11 +34,8 @@ public class CyberGame extends Game {
 
         generator.dispose();
 
-        setScreen(new MainMenuScreen(this));
-    }
-
-    public void navigateTo(final Screen screen) {
-        setScreen(screen);
+        final MainMenuScreen mainMenuScreen = new MainMenuScreen(this);
+        mainMenuScreen.navigateTo(mainMenuScreen);
     }
 
     @Override

@@ -16,19 +16,21 @@ import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.marche1os.cybergame.CyberGame;
 
-public class MainMenuScreen implements Screen {
-    final CyberGame cyberGame;
-
-    private Stage stage;
+public class MainMenuScreen extends BaseScreen {
     private TextButton start, exit;
     private Table table;
 
     public MainMenuScreen(final CyberGame cyberGame) {
-        this.cyberGame = cyberGame;
+        super(cyberGame);
+    }
 
-        stage = new Stage(new ScreenViewport());
-        stage.addActor(cyberGame.backgroundActor);
+    @Override
+    public void show() {
+        super.show();
+        showViews();
+    }
 
+    public void showViews() {
         final Skin skin = new Skin();
         final TextureAtlas buttonAtlas = new TextureAtlas(Gdx.files.internal("images/images.pack"));
         final TextButton.TextButtonStyle textButtonStyle = new TextButton.TextButtonStyle();
@@ -43,9 +45,6 @@ public class MainMenuScreen implements Screen {
         createAndPlaceButtons(textButtonStyle);
 
         stage.addActor(table);
-
-        Gdx.input.setInputProcessor(stage);
-        Gdx.input.setCatchKey(BACK, true);
     }
 
     private void createAndPlaceButtons(final TextButton.TextButtonStyle style) {
@@ -70,7 +69,7 @@ public class MainMenuScreen implements Screen {
 
             @Override
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
-                cyberGame.setScreen(new ShelterScreen(cyberGame));
+                navigateTo(new ShelterScreen(cyberGame));
             }
         };
         start.addListener(clickListener);
@@ -92,45 +91,5 @@ public class MainMenuScreen implements Screen {
             }
         };
         exit.addListener(clickListener);
-    }
-
-    @Override
-    public void show() {
-
-    }
-
-    @Override
-    public void render(float delta) {
-        Gdx.gl.glClearColor(0, 0, 0, 1);
-        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-
-        stage.act(delta);
-        stage.draw();
-    }
-
-    @Override
-    public void resize(int width, int height) {
-
-    }
-
-    @Override
-    public void pause() {
-
-    }
-
-    @Override
-    public void resume() {
-
-    }
-
-    @Override
-    public void hide() {
-
-    }
-
-    @Override
-    public void dispose() {
-        stage.dispose();
-        cyberGame.dispose();
     }
 }
