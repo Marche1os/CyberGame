@@ -5,8 +5,10 @@ sourceSets.main.java.srcDirs = [ "src/" ]
 eclipse.project.name = appName + "-core"
 
 dependencies {
-    implementation project(':entities')
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+    implementation project(':accessories')
+    implementation project(':quest')
+    implementation project(':player')
 }
 repositories {
     mavenCentral()

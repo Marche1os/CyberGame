@@ -6,6 +6,7 @@ import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.marche1os.cybergame.CyberGame;
+import com.marchelos.accessories.ShelterAccessories;
 
 public class ShelterScreen extends BaseScreen {
 
