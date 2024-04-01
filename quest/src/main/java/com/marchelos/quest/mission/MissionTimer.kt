@@ -17,6 +17,8 @@ class MissionTimer(
     }
 
     fun startTimer() {
+        require(listeners.isNotEmpty())
+
         runBlocking {
             withContext(Dispatchers.Default) {
                 while (seconds > 0) {
@@ -30,5 +32,14 @@ class MissionTimer(
 
     fun clear() {
         listeners.clear()
+    }
+
+    fun modify(newSecondsValue: Int) {
+        seconds = newSecondsValue
+    }
+
+    fun reduceByPercent(percent: Int) {
+        val reduced = (seconds / 100 * percent)
+        seconds -= reduced
     }
 }

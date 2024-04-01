@@ -1,7 +1,7 @@
 package com.marchelos.quest.digital_system
 
 @JvmInline
-value class DigitalSystemId(val value: String) {
+value class DigitalSystemId(private val value: String) {
 
     init {
         require(value.isNotBlank())
