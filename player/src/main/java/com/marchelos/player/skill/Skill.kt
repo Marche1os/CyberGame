@@ -21,7 +21,7 @@ interface Skill {
 
     fun currentLevel(): SkillLevel
 
-    fun name(): SkillName
+    fun name(): String
 
     fun description(): SkillDescription
 
@@ -33,7 +33,13 @@ data class SkillAttributes(
     val name: SkillName,
     val description: SkillDescription,
     var level: SkillLevel,
+    var status: Status = Status.NOT_APPLIED,
 )
+
+sealed interface Status {
+    data object APPLIED : Status
+    data object NOT_APPLIED : Status
+}
 
 sealed interface UpgradeSkillStatus {
     data object Success : UpgradeSkillStatus

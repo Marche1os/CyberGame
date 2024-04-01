@@ -46,7 +46,6 @@ public class MissionSelectorScreen extends BaseScreen {
     }
 
     private void createAndPlaceButtons(final TextButton.TextButtonStyle style) {
-
         table = new Table();
         table.setFillParent(true);
 

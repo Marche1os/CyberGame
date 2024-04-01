@@ -5,6 +5,6 @@ import com.marchelos.player.skill.Skill
 
 data class HeroAttributes(
     val balance: Money,
-    val skills: Set<Skill>,
+    val skills: MutableSet<Skill>,
     var points: Points,
 )

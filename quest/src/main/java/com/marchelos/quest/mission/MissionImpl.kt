@@ -1,6 +1,7 @@
 package com.marchelos.quest.mission
 
 import com.marchelos.player.skill.Skill
+import com.marchelos.player.skill.Status
 import com.marchelos.quest.ObserveListener
 
 class MissionImpl(
@@ -28,7 +29,11 @@ class MissionImpl(
     private fun currentStatus() = attrs.status
 
     override fun applySkill(skill: Skill) {
-        attrs.timer.increaseTimerByPercent(skill.currentLevel().value)
+        if (skill.attrs.status == Status.APPLIED) {
+            return
+        }
+        skill.attrs.status = Status.APPLIED
+        attrs.timer.increaseTimerByPercent(skill.currentLevel().value * 10)
     }
 
     private inline fun changeMissionStatusTo(operation: () -> MissionAttributes.Status) {

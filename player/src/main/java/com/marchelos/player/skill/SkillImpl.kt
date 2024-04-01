@@ -18,7 +18,7 @@ class SkillImpl(
 
     override fun currentLevel(): SkillLevel = attrs.level
 
-    override fun name(): SkillName = attrs.name
+    override fun name(): String = attrs.name.value
 
     override fun description(): SkillDescription = attrs.description
 

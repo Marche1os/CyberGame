@@ -9,6 +9,8 @@ import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.marche1os.cybergame.CyberGame;
+import com.marchelos.player.skill.Skill;
+import com.marchelos.player.skill.SkillName;
 import com.marchelos.quest.MissionStore;
 import com.marchelos.quest.mission.Mission;
 import com.marchelos.quest.mission.MissionId;
@@ -54,7 +56,7 @@ public class HackingScreen extends BaseScreen {
         final Label.LabelStyle labelStyle = new Label.LabelStyle();
         labelStyle.font = cyberGame.font;
 
-        missionTitle = new Label(mission.getAttrs().id(), labelStyle);
+        missionTitle = new Label("Миссия № " + mission.getAttrs().id(), labelStyle);
         table.add(missionTitle);
 
         mission.getAttrs().getTimer().addListener(value -> missionTitle.setText("Осталось секунд на взлом: " + value));
@@ -83,7 +85,9 @@ public class HackingScreen extends BaseScreen {
     }
 
     private void createApplySkillButton(final TextButton.TextButtonStyle style) {
-        final TextButton applySkillButton = new TextButton("Применить навык", style);
+        final Skill skill = hero.getSkillBy("ReduceTimeSkill");
+        final String skillName = skill.name();
+        final TextButton applySkillButton = new TextButton("Применить навык " + skillName, style);
         table.row();
         table.add(applySkillButton);
 
@@ -96,7 +100,7 @@ public class HackingScreen extends BaseScreen {
 
             @Override
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
-                mission.getAttrs().getTimer().increaseTimerByPercent(100);
+                mission.applySkill(skill);
             }
         };
 

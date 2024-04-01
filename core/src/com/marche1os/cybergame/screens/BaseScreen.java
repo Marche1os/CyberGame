@@ -10,18 +10,22 @@ import com.badlogic.gdx.scenes.scene2d.InputListener;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.marche1os.cybergame.CyberGame;
+import com.marchelos.player.hero.Hero;
+import com.marchelos.player.hero.HeroImpl;
 
 import java.util.Stack;
 
 public class BaseScreen implements Screen {
     public final CyberGame cyberGame;
     public final Stage stage;
+    public final Hero hero;
 
     private static final Stack<Screen> screenStack = new Stack<>();
 
     public BaseScreen(final CyberGame game) {
         cyberGame = game;
         stage = new Stage(new ScreenViewport());
+        hero = HeroImpl.Factory.create();
         addBackClickListener();
     }
 
