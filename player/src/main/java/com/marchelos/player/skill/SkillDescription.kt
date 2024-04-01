@@ -1,4 +1,4 @@
-package com.marchelos.player
+package com.marchelos.player.skill
 
 @JvmInline
 value class SkillDescription(val value: String) {

@@ -1,4 +1,4 @@
-package com.marchelos.player
+package com.marchelos.player.skill
 
 class SkillImpl(
     private val attributes: SkillAttributes,

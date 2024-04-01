@@ -1,4 +1,4 @@
-package com.marchelos.player
+package com.marchelos.player.skill
 
 /**
  * Уровень прокачки навыка. Содержит значение в диапазоне от 1 до 10

@@ -1,12 +1,16 @@
 package com.marchelos.quest.mission
 
-import com.marchelos.quest.digital_system.DigitalSystemId
+import com.marchelos.quest.mission.MissionAttributes.Status.COMPLETED
+import com.marchelos.quest.mission.MissionAttributes.Status.FAILED
+import com.marchelos.quest.mission.MissionAttributes.Status.OPENED
+import com.marchelos.quest.mission.MissionAttributes.Status.PROCESSING
+import com.marchelos.quest.mission.MissionAttributes.Status.UNAVAILABLE
 
 data class MissionAttributes(
     val id: MissionId,
-    val systemToHack: DigitalSystemId,
+//    val systemToHack: DigitalSystemId,
     val timer: MissionTimer,
-    var status: Status,
+    var status: Status = Status.OPENED,
 ) {
 
     /**

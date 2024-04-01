@@ -16,6 +16,8 @@ android {
     }
     packagingOptions {
         exclude 'META-INF/robovm/ios/robovm.xml'
+        exclude "META-INF/LICENSE.md"
+        exclude "META-INF/LICENSE-notice.md"
     }
     defaultConfig {
         applicationId "com.marche1os.cybergame"

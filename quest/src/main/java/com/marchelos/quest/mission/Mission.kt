@@ -1,6 +1,6 @@
 package com.marchelos.quest.mission
 
-import com.marchelos.player.Skill
+import com.marchelos.player.skill.Skill
 
 interface Mission {
     // Атрибуты:
