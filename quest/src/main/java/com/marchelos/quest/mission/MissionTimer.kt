@@ -4,7 +4,6 @@ import com.marchelos.quest.ObserveListener
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.runBlocking
-import kotlinx.coroutines.withContext
 import java.util.LinkedList
 
 class MissionTimer(
@@ -19,13 +18,11 @@ class MissionTimer(
     fun startTimer() {
         require(listeners.isNotEmpty())
 
-        runBlocking {
-            withContext(Dispatchers.Default) {
-                while (seconds > 0) {
-                    delay(1000)
-                    seconds--
-                    listeners.forEach { it.observe(seconds) }
-                }
+        runBlocking(Dispatchers.IO) {
+            while (seconds > 0) {
+                delay(1000)
+                seconds--
+                listeners.forEach { it.observe(seconds) }
             }
         }
     }
@@ -38,8 +35,8 @@ class MissionTimer(
         seconds = newSecondsValue
     }
 
-    fun reduceByPercent(percent: Int) {
-        val reduced = (seconds / 100 * percent)
-        seconds -= reduced
+    fun increaseTimerByPercent(percent: Int) {
+        val add = (1 + percent / 100)
+        seconds *= add
     }
 }

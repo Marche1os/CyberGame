@@ -39,7 +39,6 @@ public class MissionSelectorScreen extends BaseScreen {
         textButtonStyle.font = cyberGame.font;
         textButtonStyle.up = skin.getDrawable("button-up");
         textButtonStyle.down = skin.getDrawable("button-down");
-        textButtonStyle.checked = skin.getDrawable("button-up");
 
         createAndPlaceButtons(textButtonStyle);
 
@@ -82,5 +81,6 @@ public class MissionSelectorScreen extends BaseScreen {
 
     private void onMissionClick(final MissionId missionId) {
         Logger.getGlobal().log(Level.INFO, "Clicked " + missionId.getValue());
+        navigateTo(new HackingScreen(cyberGame, missionId));
     }
 }

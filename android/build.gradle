@@ -20,6 +20,7 @@ android {
         exclude "META-INF/LICENSE-notice.md"
     }
     defaultConfig {
+        multiDexEnabled true
         applicationId "com.marche1os.cybergame"
         minSdkVersion 19
         targetSdkVersion 34

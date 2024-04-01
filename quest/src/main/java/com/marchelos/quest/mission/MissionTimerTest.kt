@@ -32,7 +32,7 @@ class MissionTimerTest {
         }
 
         timer.addListener(listener)
-        timer.reduceByPercent(10)
+        timer.increaseTimerByPercent(10)
         timer.startTimer()
     }
 

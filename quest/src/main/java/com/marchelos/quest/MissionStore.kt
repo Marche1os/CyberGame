@@ -22,6 +22,8 @@ object MissionStore {
 
     fun readBy(missionId: MissionId): Mission = missions.getValue(missionId)
 
+    fun readBy(missionId: String): Mission = missions.mapKeys { it.key.value }.getValue(missionId)
+
     fun readAll(): Map<MissionId, Mission> = missions
 
     object Generator {

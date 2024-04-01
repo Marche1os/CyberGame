@@ -10,7 +10,7 @@ data class MissionAttributes(
     val id: MissionId,
 //    val systemToHack: DigitalSystemId,
     val timer: MissionTimer,
-    var status: Status = Status.OPENED,
+    var status: Status = OPENED,
 ) {
 
     /**
@@ -29,7 +29,5 @@ data class MissionAttributes(
         data object FAILED : Status
     }
 
-    fun changeStatusToProcessing() {
-        status = Status.PROCESSING
-    }
+    fun id() = id.value
 }

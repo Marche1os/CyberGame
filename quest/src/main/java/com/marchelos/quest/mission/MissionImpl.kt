@@ -28,7 +28,7 @@ class MissionImpl(
     private fun currentStatus() = attrs.status
 
     override fun applySkill(skill: Skill) {
-        attrs.timer.reduceByPercent(skill.currentLevel().value)
+        attrs.timer.increaseTimerByPercent(skill.currentLevel().value)
     }
 
     private inline fun changeMissionStatusTo(operation: () -> MissionAttributes.Status) {
