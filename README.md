@@ -12,3 +12,4 @@
 Пример игры:
 https://github.com/Marche1os/CyberGame/assets/44587937/7c66e9d1-f001-440f-8dbd-52d2c8bddb71
 
+Ссылка на apk файл для установки на телефон: https://github.com/Marche1os/CyberGame/blob/main/android-debug.apk. 
